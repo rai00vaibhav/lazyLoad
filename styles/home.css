@@ -1,0 +1,36 @@
+body {
+    font-family: cursive;
+}
+article > * {
+    padding: 0.5em;
+}
+article > header {
+    display: flex;
+    flex-wrap: wrap;
+}
+article > header > div:first-child {
+    min-width: 200px;
+}
+article > header > div:first-child > select {
+    padding: 0.2em;
+}
+article > header > div:nth-child(2) {
+    flex: 1;
+}
+article > header > div:nth-child(2) > input {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 0.4em;
+    border-radius: 0.3em;
+    border: 1px solid #bae4dc;
+}
+article > section > table {
+    min-width: 100%;
+}
+article > section > table > tbody > tr:nth-child(odd) {
+    background-color: #def3f2;
+}
+article > section > table > thead > tr > th,
+article > section > table > tbody > tr > td {
+    column-gap: 0.2em;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Fyle banking task</title>
+        <script src="scripts/resources/angular.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/app.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/services/bank-list.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/controllers/home.ctrl.js" type="text/javascript" charset="utf-8"></script>
+        <link rel="stylesheet" href="styles/home.css">
+    </head>
+    <body ng-app="FyleBank" ng-controller="HomeCtrl">
+        <h1>Bank branches</h1>
+        <article>
+            <header>
+                <div>
+                    <label for="cityList">Cities:</label>
+                    <select id="cityList" ng-model="data.city.selected" ng-options="city.label for city in data.city.list" ng-change="data.city.refresh()">
+                    </select>
+                </div>
+                <div>
+                    <input type="text" ng-model="data.search.key" placeholder="Search banks here" ng-change="data.search.filter()" ng-model-options="{ debounce: 300 }">
+                </div>
+            </header>
+            <section>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>IFSC</th>
+                            <th>Branch</th>
+                            <th>City</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="branch in data.branches.render.visible">
+                            <td>{{branch.bank_name}}</td>
+                            <td>{{branch.address}}</td>
+                            <td>{{branch.ifsc}}</td>
+                            <td>{{branch.branch}}</td>
+                            <td>{{branch.city}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </article>
+    </body>
+</html>
